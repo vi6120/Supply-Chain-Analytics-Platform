@@ -47,21 +47,7 @@ SupplyIQ simulates a real SAP-connected supply chain operation and provides:
 
 ## Architecture
 
-```
-SAP synthetic data (MM / SD / WM)
-        ↓
-daily_trigger.py — incremental Parquet files
-        ↓
-DuckDB bronze views — raw, typed, renamed
-        ↓
-dbt silver tables — joined, validated, enriched
-        ↓
-dbt gold tables — KPIs, reorder alerts, risk scores
-        ↓
-FastAPI (13 endpoints, filter params) ←→ Groq AI advisor
-        ↓
-React dashboard (8 pages, live filters)
-```
+![Architecture](docs/supply_chain_ai_architecture.svg)
 
 ---
 
