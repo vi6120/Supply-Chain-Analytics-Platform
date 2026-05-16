@@ -1,0 +1,9 @@
+
+target/
+dbt_packages/
+logs/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example

@@ -1,0 +1,108 @@
+version: 2
+
+models:
+  - name: bronze_ekko
+    columns:
+      - name: po_number
+        tests:
+          - not_null
+          - unique
+      - name: vendor_id
+        tests:
+          - not_null
+      - name: po_date
+        tests:
+          - not_null
+
+  - name: bronze_ekpo
+    columns:
+      - name: po_number
+        tests:
+          - not_null
+      - name: po_item
+        tests:
+          - not_null
+      - name: ordered_qty
+        tests:
+          - not_null
+      - name: received_qty
+        tests:
+          - not_null
+
+  - name: bronze_vbak
+    columns:
+      - name: so_number
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        tests:
+          - not_null
+      - name: overall_status
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['A', 'B', 'C']
+
+  - name: bronze_vbap
+    columns:
+      - name: so_number
+        tests:
+          - not_null
+      - name: delivery_status
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['A', 'B', 'C']
+      - name: ordered_qty
+        tests:
+          - not_null
+
+  - name: bronze_mseg
+    columns:
+      - name: document_number
+        tests:
+          - not_null
+      - name: movement_type
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['101', '201', '261', '601']
+      - name: posting_date
+        tests:
+          - not_null
+
+  - name: silver_purchase_orders
+    columns:
+      - name: po_number
+        tests:
+          - not_null
+      - name: fulfillment_pct
+        tests:
+          - not_null
+      - name: receipt_status
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Open', 'Partially received', 'Fully received']
+
+  - name: silver_sales_orders
+    columns:
+      - name: so_number
+        tests:
+          - not_null
+      - name: delivery_status_text
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Open', 'Partially delivered', 'Fully delivered', 'Unknown']
+
+  - name: gold_reorder_alerts
+    columns:
+      - name: material_id
+        tests:
+          - not_null
+      - name: reorder_recommendation
+        tests:
+          - not_null

@@ -1,0 +1,38 @@
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Data & database files
+data/raw/
+data/*.duckdb
+*.duckdb
+
+# Logs
+logs/
+*.log
+
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+package-lock.json
+
+# IDE
+.vscode/
+.idea/
