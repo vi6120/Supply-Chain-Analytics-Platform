@@ -77,8 +77,8 @@ export default function App() {
               VR
             </div>
             <div>
-              <div className="text-xs font-medium text-gray-800">Vikas R.</div>
-              <div className="text-xs text-gray-400">Analyst</div>
+              <div className="text-xs font-medium text-gray-800">Vikas Ramaswamy.</div>
+              <div className="text-xs text-gray-400">Data Engineer</div>
             </div>
           </div>
         </aside>
