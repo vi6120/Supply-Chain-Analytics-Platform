@@ -10,8 +10,8 @@ cohesive project.
 
 | | URL |
 |--|--|
-| **Dashboard** | [Deployed on Vercel](#) |
-| **API docs** | [Deployed on Render](#) |
+| **Dashboard** | [https://supplyiq-bice.vercel.app](#) |
+| **API docs** | [https://supplyiq-4tkt.onrender.com/docs](#) |
 
 ---
 
