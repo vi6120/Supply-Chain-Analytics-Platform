@@ -17,7 +17,7 @@ cohesive project.
 
 ## Architecture
 
-![Architecture](docs/architecture.svg)
+![Architecture](docs/supply_chain_ai_architecture.svg)
 
 ---
 
