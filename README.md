@@ -1,4 +1,12 @@
 # SupplyIQ — Supply Chain Analytics Platform
+![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
+![dbt](https://img.shields.io/badge/dbt-1.11-orange?logo=dbt)
+![DuckDB](https://img.shields.io/badge/DuckDB-1.5-yellow)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.136-green?logo=fastapi)
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)
+![Airflow](https://img.shields.io/badge/Airflow-2.x-017CEE?logo=apacheairflow)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
+![Live](https://img.shields.io/badge/Live-Vercel-black?logo=vercel)
 
 An end-to-end, production-grade supply chain analytics pipeline demonstrating
 data engineering, AI integration, and full-stack development across a single
