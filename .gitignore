@@ -20,8 +20,8 @@ build/
 
 # Data & database files
 data/raw/
-data/*.duckdb
-*.duckdb
+data/training/
+!data/supply_chain.duckdb
 
 # Logs
 logs/
