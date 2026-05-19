@@ -86,10 +86,24 @@ DEMAND SIGNALS:
 """
 
 
+_WRITE_KEYWORDS = (
+    "update", "insert", "delete", "create", "modify", "change", "set",
+    "write", "edit", "add", "remove", "patch", "replace", "drop", "alter",
+)
+
+
 @router.post("/ask")
 def ask_advisor(body: QuestionRequest):
     if not body.question.strip():
         raise HTTPException(status_code=400, detail="Question cannot be empty")
+
+    q = body.question.lower()
+    if any(kw in q.split() for kw in _WRITE_KEYWORDS):
+        return {
+            "answer": "I don't have permission to write, modify, or delete data from the dashboard. I can only read and analyse the existing supply chain data.",
+            "model": None,
+            "question": body.question,
+        }
     try:
         con = get_connection()
         context = build_context(con)
@@ -100,9 +114,13 @@ def ask_advisor(body: QuestionRequest):
             messages=[
                 {
                     "role": "system",
-                    "content": """You are an expert supply chain analyst with deep knowledge 
+                    "content": """You are a read-only expert supply chain analyst with deep knowledge 
 of inventory management, procurement, demand planning, and supplier performance. 
 You have access to real supply chain data from the user's pipeline.
+
+IMPORTANT: You are strictly read-only. You cannot and must not write, update, 
+insert, delete, or modify any data or models. If asked to do so, clearly state 
+that you do not have permission to write data from the dashboard.
 
 When answering:
 - Be specific and reference actual data values from the context
