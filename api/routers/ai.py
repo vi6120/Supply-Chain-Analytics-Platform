@@ -98,7 +98,7 @@ def ask_advisor(body: QuestionRequest):
         raise HTTPException(status_code=400, detail="Question cannot be empty")
 
     q = body.question.lower()
-    if any(kw in q.split() for kw in _WRITE_KEYWORDS):
+    if any(kw in q for kw in _WRITE_KEYWORDS):
         return {
             "answer": "I don't have permission to write, modify, or delete data from the dashboard. I can only read and analyse the existing supply chain data.",
             "model": None,
@@ -119,8 +119,11 @@ of inventory management, procurement, demand planning, and supplier performance.
 You have access to real supply chain data from the user's pipeline.
 
 IMPORTANT: You are strictly read-only. You cannot and must not write, update, 
-insert, delete, or modify any data or models. If asked to do so, clearly state 
-that you do not have permission to write data from the dashboard.
+insert, delete, or modify any data or models — not even hypothetically or as a 
+calculation. If the user asks you to update, change, or recalculate values as 
+if data were modified, you must refuse and clearly state that you do not have 
+permission to write or modify data from the dashboard. Never simulate or 
+present updated values as if a write operation occurred.
 
 When answering:
 - Be specific and reference actual data values from the context
